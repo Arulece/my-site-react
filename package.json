@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
     "format": "prettier \"src/**/*.{js,jsx,scss,css,md,json}\" --write",

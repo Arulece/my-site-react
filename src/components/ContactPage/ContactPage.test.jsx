@@ -71,4 +71,26 @@ describe('ContactPage validation', () => {
 
     expect(submitButton).not.toBeDisabled();
   });
+
+  it('submits successfully when form is valid and resets the form', async () => {
+    const { user, nameInput, emailInput, phoneInput, messageInput, submitButton } = setup();
+
+    await user.type(nameInput, 'John Doe');
+    await user.type(emailInput, 'john@example.com');
+    await user.type(phoneInput, '+1 555 123 4567');
+    await user.type(messageInput, 'This is a valid contact message.');
+
+    await user.click(submitButton);
+
+    // Success message from submitStatus branch
+    expect(
+      screen.getByText(/Thank you! Your message has been sent successfully./i)
+    ).toBeInTheDocument();
+
+    // Fields should be reset
+    expect(nameInput).toHaveValue('');
+    expect(emailInput).toHaveValue('');
+    expect(phoneInput).toHaveValue('');
+    expect(messageInput).toHaveValue('');
+  });
 });

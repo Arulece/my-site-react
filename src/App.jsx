@@ -1,0 +1,39 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import ContactPage from './components/ContactPage/ContactPage';
+
+const PlaceholderPage = ({ title }) => (
+  <section className="app__section app__section--hero">
+    <h1 className="app__title">{title}</h1>
+    <p className="app__subtitle">
+      This is a placeholder page. You can replace this content with your own implementation.
+    </p>
+  </section>
+);
+
+const App = () => (
+  <div className="app">
+    <Header />
+    <main className="app__main">
+      <Routes>
+        <Route path="/" element={<PlaceholderPage title="Home" />} />
+        <Route path="/about" element={<PlaceholderPage title="About" />} />
+        <Route path="/services" element={<PlaceholderPage title="Services" />} />
+        <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
+        <Route
+          path="/contact"
+          element={
+            <section className="app__section">
+              <ContactPage />
+            </section>
+          }
+        />
+      </Routes>
+    </main>
+  </div>
+);
+
+export default App;
+
+

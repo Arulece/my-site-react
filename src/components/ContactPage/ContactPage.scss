@@ -1,0 +1,235 @@
+@use 'sass:math';
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.contact {
+  padding: variables.$space-xl variables.$space-md variables.$space-xl * 2;
+  background-color: #5af4dd;
+  color: #020617;
+
+  @include mixins.respond-md {
+    padding: variables.$space-xl * 2 variables.$space-md variables.$space-xl * 3;
+  }
+}
+
+.contact__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.contact__header {
+  margin-bottom: variables.$space-xl * 1.5;
+}
+
+.contact__title {
+  margin: 0 0 variables.$space-sm;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  @include mixins.respond-md {
+    font-size: 2.25rem;
+  }
+}
+
+.contact__subtitle {
+  margin: 0;
+  max-width: 30rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #065f46;
+
+  @include mixins.respond-md {
+    font-size: 1rem;
+  }
+}
+
+.contact__body {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$space-lg;
+}
+
+.contact__form-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: variables.$space-lg variables.$space-md * 1.5 variables.$space-xl;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+
+  @include mixins.respond-md {
+    padding: variables.$space-xl * 1.25 variables.$space-xl * 1.5;
+  }
+}
+
+.contact__form-title {
+  margin: 0 0 variables.$space-lg;
+  font-size: 1.1rem;
+  color: #1d2499;
+}
+
+.contact__success {
+  margin: 0 0 variables.$space-md;
+  padding: variables.$space-sm variables.$space-md;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #14532d;
+  background-color: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$space-md;
+}
+
+.contact__row {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$space-md;
+
+  &--split {
+    @include mixins.respond-md {
+      flex-direction: row;
+      gap: variables.$space-xl;
+    }
+  }
+}
+
+.contact__field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: variables.$space-xs;
+}
+
+.contact__label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #1e3a8a;
+}
+
+.contact__input,
+.contact__textarea {
+  padding: variables.$space-sm 0;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  font-family: variables.$font-family-base;
+  color: #0f172a;
+  background-color: transparent;
+  outline: none;
+  resize: vertical;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus-visible {
+    border-bottom-color: #4f46e5;
+  }
+}
+
+.contact__input--error,
+.contact__textarea--error {
+  border-bottom-color: #dc2626;
+}
+
+.contact__textarea {
+  padding-top: variables.$space-sm;
+}
+
+.contact__actions {
+  margin-top: variables.$space-lg;
+}
+
+.contact__button {
+  @include mixins.button-reset;
+  min-width: 130px;
+  padding: variables.$space-sm variables.$space-lg;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #312e81, #1d4ed8);
+  color: #f9fafb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 30px rgba(37, 99, 235, 0.5);
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out, opacity 120ms ease-out;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 20px 34px rgba(37, 99, 235, 0.6);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.contact__error-text {
+  margin: variables.$space-xs 0 0;
+  font-size: 0.8rem;
+  color: #dc2626;
+}
+
+.contact__info-card {
+  background-color: #1d1fdd;
+  color: #e5e7eb;
+  border-radius: 0 0 8px 8px;
+  padding: variables.$space-lg variables.$space-md * 1.5 variables.$space-xl;
+  box-shadow: 0 24px 40px rgba(15, 23, 42, 0.3);
+
+  @include mixins.respond-md {
+    align-self: stretch;
+    border-radius: 0 8px 8px 0;
+    padding: variables.$space-xl * 1.25 variables.$space-xl * 1.75;
+  }
+}
+
+.contact__info-title {
+  margin: 0 0 variables.$space-lg;
+  font-size: 1.05rem;
+}
+
+.contact__info-list {
+  margin: 0;
+  padding: 0;
+}
+
+.contact__info-item {
+  margin-bottom: variables.$space-md;
+}
+
+.contact__info-label {
+  margin: 0 0 math.div(variables.$space-xs, 2);
+  font-size: 0.85rem;
+  color: #c7d2fe;
+}
+
+.contact__info-value {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@include mixins.respond-md {
+  .contact__body {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .contact__form-card {
+    flex: 3;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .contact__info-card {
+    flex: 2;
+  }
+}
+
+

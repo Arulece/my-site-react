@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './ContactPage.scss';
 
 const required = (value, message) => {
@@ -48,10 +48,7 @@ const validateContactField = (name, value) => {
       );
     }
     case 'phone':
-      return isOptionalPhone(
-        value,
-        'Phone number must contain only numbers and basic symbols.',
-      );
+      return isOptionalPhone(value, 'Phone number must contain only numbers and basic symbols.');
     case 'message': {
       return (
         required(value, 'Message is required.') ||
@@ -106,8 +103,8 @@ const ContactPage = () => {
     setTouched(
       Object.keys(values).reduce(
         (accumulator, fieldName) => ({ ...accumulator, [fieldName]: true }),
-        {},
-      ),
+        {}
+      )
     );
 
     if (Object.keys(validationErrors).length > 0) {
@@ -142,8 +139,8 @@ const ContactPage = () => {
         <header className="contact__header">
           <h1 className="contact__title">Connect With Us</h1>
           <p className="contact__subtitle">
-            We would love to respond to your queries and help you succeed. Feel free to get in
-            touch with us.
+            We would love to respond to your queries and help you succeed. Feel free to get in touch
+            with us.
           </p>
         </header>
 
@@ -317,5 +314,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-

@@ -64,7 +64,9 @@
   transform-origin: top;
   transform: scaleY(0);
   opacity: 0;
-  transition: transform 160ms ease-out, opacity 160ms ease-out;
+  transition:
+    transform 160ms ease-out,
+    opacity 160ms ease-out;
 
   @include mixins.respond-md {
     position: static;
@@ -111,7 +113,9 @@
   text-decoration: none;
   color: variables.$color-text;
   border-radius: 999px;
-  transition: background-color 120ms ease-out, color 120ms ease-out;
+  transition:
+    background-color 120ms ease-out,
+    color 120ms ease-out;
 
   &:hover,
   &:focus-visible {
@@ -147,5 +151,3 @@
   box-shadow: 0 10px 25px rgba(15, 118, 110, 0.45);
   white-space: nowrap;
 }
-
-

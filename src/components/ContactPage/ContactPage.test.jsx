@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ContactPage from './ContactPage';
@@ -44,13 +43,9 @@ describe('ContactPage validation', () => {
     await user.type(messageInput, 'short');
     await user.click(submitButton);
 
-    expect(
-      screen.getByText(/Full name must be at least 3 characters/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Full name must be at least 3 characters/i)).toBeInTheDocument();
     expect(screen.getByText(/Please enter a valid email address/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/Message must be at least 10 characters/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Message must be at least 10 characters/i)).toBeInTheDocument();
   });
 
   it('validates phone number when provided', async () => {
@@ -63,7 +58,7 @@ describe('ContactPage validation', () => {
     await user.click(submitButton);
 
     expect(
-      screen.getByText(/Phone number must contain only numbers and basic symbols/i),
+      screen.getByText(/Phone number must contain only numbers and basic symbols/i)
     ).toBeInTheDocument();
   });
 
@@ -77,5 +72,3 @@ describe('ContactPage validation', () => {
     expect(submitButton).not.toBeDisabled();
   });
 });
-
-

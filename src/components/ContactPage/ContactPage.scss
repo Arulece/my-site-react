@@ -155,7 +155,10 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   box-shadow: 0 18px 30px rgba(37, 99, 235, 0.5);
-  transition: transform 120ms ease-out, box-shadow 120ms ease-out, opacity 120ms ease-out;
+  transition:
+    transform 120ms ease-out,
+    box-shadow 120ms ease-out,
+    opacity 120ms ease-out;
 
   &:not(:disabled):hover,
   &:not(:disabled):focus-visible {
@@ -231,5 +234,3 @@
     flex: 2;
   }
 }
-
-

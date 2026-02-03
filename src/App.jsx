@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import ContactPage from './components/ContactPage/ContactPage';
@@ -35,5 +34,3 @@ const App = () => (
 );
 
 export default App;
-
-

@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
@@ -9,7 +8,7 @@ describe('App routing', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     expect(screen.getByRole('heading', { name: /Home/i })).toBeInTheDocument();
@@ -21,7 +20,7 @@ describe('App routing', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     const contactLink = screen.getByRole('link', { name: /Contact/i });
@@ -36,7 +35,7 @@ describe('App routing', () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/']}>
         <App />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     const homeLink = screen.getByRole('link', { name: /Home/i });
@@ -49,5 +48,3 @@ describe('App routing', () => {
     expect(container.querySelectorAll('.header__nav-link--active').length).toBe(1);
   });
 });
-
-

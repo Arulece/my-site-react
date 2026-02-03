@@ -14,12 +14,10 @@ describe('index.jsx entry point', () => {
     createRoot.mockReturnValue({ render: renderMock });
 
     // Require after mocks and DOM setup so index.jsx uses them
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line no-undef
     require('./index.jsx');
 
     expect(createRoot).toHaveBeenCalledWith(container);
     expect(renderMock).toHaveBeenCalledTimes(1);
   });
 });
-
-

@@ -1,0 +1,95 @@
+@use '../styles/variables' as vars;
+@use '../styles/mixins' as mixins;
+
+.home-page {
+  width: 100%;
+}
+
+.home-page__banner-section {
+  width: 100%;
+  margin-bottom: vars.$space-xl * 2;
+}
+
+.home-page__content {
+  padding: vars.$space-lg vars.$space-md;
+
+  @include mixins.respond-md {
+    padding: vars.$space-xl;
+  }
+}
+
+.home-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-page__title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 vars.$space-md 0;
+  color: vars.$color-text;
+
+  @include mixins.respond-md {
+    font-size: 48px;
+    margin-bottom: vars.$space-lg;
+  }
+}
+
+.home-page__subtitle {
+  font-size: 18px;
+  color: vars.$color-muted;
+  margin: 0 0 vars.$space-xl 0;
+
+  @include mixins.respond-md {
+    font-size: 20px;
+    margin-bottom: vars.$space-xl * 1.5;
+  }
+}
+
+.home-page__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-lg;
+  margin-top: vars.$space-xl;
+
+  @include mixins.respond-md {
+    grid-template-columns: repeat(3, 1fr);
+    gap: vars.$space-xl;
+  }
+}
+
+.home-page__feature {
+  padding: vars.$space-lg;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.home-page__feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 vars.$space-md 0;
+  color: vars.$color-text;
+
+  @include mixins.respond-md {
+    font-size: 22px;
+  }
+}
+
+.home-page__feature-text {
+  margin: 0;
+  color: vars.$color-muted;
+  font-size: 14px;
+  line-height: 1.6;
+
+  @include mixins.respond-md {
+    font-size: 16px;
+  }
+}

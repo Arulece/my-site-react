@@ -11,7 +11,7 @@ describe('App routing', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByRole('heading', { name: /Home/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /welcome to our site/i })).toBeInTheDocument();
   });
 
   it('navigates to the Contact page when Contact link is clicked', async () => {

@@ -24,6 +24,7 @@ module.exports = merge(common, {
       extensions: ['js', 'jsx'],
       emitWarning: true,
       failOnError: false,
+      configType: 'flat',
     }),
   ],
 });

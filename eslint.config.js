@@ -48,7 +48,7 @@ module.exports = [
       ...reactHooksPlugin.configs.recommended.rules,
 
       // Run Prettier as an ESLint rule
-      'prettier/prettier': 'error',
+      ...prettierPlugin.configs.recommended.rules,
 
       // Custom rules & standards
       'no-unused-vars': 'error',

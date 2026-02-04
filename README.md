@@ -45,7 +45,7 @@ react-netlify-app/
 - Fix npm cache permissions once (required on this machine due to root-owned cache):
 
 ```bash
-sudo chown -R 503:20 "/Users/arulk/.npm"
+sudo chown -R 503:20 "/Users/<user>/.npm"
 ```
 
 Adjust UID/GID as appropriate for your user if different.
@@ -55,7 +55,6 @@ Adjust UID/GID as appropriate for your user if different.
 From the project root:
 
 ```bash
-cd /Users/arulk/Documents/personal/react-netlify-app
 npm install
 ```
 

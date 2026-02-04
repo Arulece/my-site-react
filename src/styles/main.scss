@@ -1,6 +1,13 @@
+// ============================================================================
+// IMPORTS
+// ============================================================================
 @use 'variables';
+@use 'colors';
 @use 'mixins';
 
+// ============================================================================
+// RESET & BASE STYLES
+// ============================================================================
 *,
 *::before,
 *::after {
@@ -15,9 +22,12 @@ body {
   color: variables.$color-text;
 }
 
+// ============================================================================
+// APP LAYOUT
+// ============================================================================
 .app {
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #1e293b, variables.$color-surface);
+  background: radial-gradient(circle at top left, variables.$color-surface-secondary, variables.$color-surface);
   color: variables.$color-text;
 }
 
@@ -57,4 +67,428 @@ body {
   @include mixins.respond-md {
     font-size: 1.1rem;
   }
+}
+
+// ============================================================================
+// TYPOGRAPHY UTILITIES
+// ============================================================================
+
+// Headings
+.heading {
+  margin: 0;
+  font-weight: variables.$font-weight-bold;
+  letter-spacing: -0.01em;
+
+  &--h1 {
+    font-size: variables.$font-size-4xl;
+    line-height: variables.$line-height-tight;
+    
+    @include mixins.respond-md {
+      font-size: 3rem;
+    }
+  }
+
+  &--h2 {
+    font-size: variables.$font-size-3xl;
+    line-height: variables.$line-height-tight;
+    
+    @include mixins.respond-md {
+      font-size: 2.25rem;
+    }
+  }
+
+  &--h3 {
+    font-size: variables.$font-size-2xl;
+    line-height: variables.$line-height-tight;
+  }
+
+  &--h4 {
+    font-size: variables.$font-size-xl;
+    line-height: variables.$line-height-tight;
+  }
+
+  &--h5 {
+    font-size: variables.$font-size-lg;
+    line-height: variables.$line-height-normal;
+  }
+
+  &--h6 {
+    font-size: variables.$font-size-base;
+    line-height: variables.$line-height-normal;
+    font-weight: variables.$font-weight-semibold;
+  }
+}
+
+// Body Text
+.text {
+  margin: 0;
+  font-size: variables.$font-size-base;
+  line-height: variables.$line-height-normal;
+
+  &--body {
+    color: variables.$color-text;
+  }
+
+  &--body-secondary {
+    color: variables.$color-text-secondary;
+  }
+
+  &--lead {
+    font-size: variables.$font-size-lg;
+    line-height: variables.$line-height-relaxed;
+    color: variables.$color-text-secondary;
+  }
+
+  &--small {
+    font-size: variables.$font-size-sm;
+    line-height: variables.$line-height-normal;
+  }
+
+  &--caption {
+    font-size: variables.$font-size-xs;
+    line-height: variables.$line-height-normal;
+    color: variables.$color-text-secondary;
+  }
+
+  &--muted {
+    color: variables.$color-muted;
+  }
+
+  &--light {
+    color: variables.$color-text-light;
+  }
+}
+
+// Font Weights
+.font-weight {
+  &--light {
+    font-weight: variables.$font-weight-light;
+  }
+
+  &--normal {
+    font-weight: variables.$font-weight-normal;
+  }
+
+  &--medium {
+    font-weight: variables.$font-weight-medium;
+  }
+
+  &--semibold {
+    font-weight: variables.$font-weight-semibold;
+  }
+
+  &--bold {
+    font-weight: variables.$font-weight-bold;
+  }
+}
+
+// ============================================================================
+// BUTTON UTILITIES
+// ============================================================================
+
+.btn {
+  @include mixins.button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: variables.$space-sm variables.$space-lg;
+  font-size: variables.$font-size-base;
+  font-weight: variables.$font-weight-semibold;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  text-transform: uppercase;
+  transition:
+    transform 120ms ease-out,
+    box-shadow 120ms ease-out,
+    opacity 120ms ease-out,
+    background-color 120ms ease-out,
+    color 120ms ease-out;
+  white-space: nowrap;
+  cursor: pointer;
+
+  // Size Variants
+  &--sm {
+    padding: variables.$space-xs variables.$space-md;
+    font-size: variables.$font-size-sm;
+  }
+
+  &--md {
+    padding: variables.$space-sm variables.$space-lg;
+    font-size: variables.$font-size-base;
+  }
+
+  &--lg {
+    padding: variables.$space-md variables.$space-xl;
+    font-size: variables.$font-size-lg;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  // Color Variants - Primary
+  &--primary {
+    background: linear-gradient(135deg, colors.$color-primary, colors.$color-primary-dark);
+    color: colors.$color-text-light;
+    box-shadow: 0 10px 25px rgba(15, 118, 110, 0.45);
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(15, 118, 110, 0.55);
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.35);
+    }
+  }
+
+  // Color Variants - Secondary
+  &--secondary {
+    background-color: transparent;
+    color: colors.$color-primary;
+    border: 2px solid colors.$color-primary;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible {
+      background-color: rgba(15, 118, 110, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0);
+      background-color: rgba(15, 118, 110, 0.15);
+    }
+  }
+
+  // Color Variants - Tertiary
+  &--tertiary {
+    background-color: rgba(15, 118, 110, 0.08);
+    color: colors.$color-primary;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible {
+      background-color: rgba(15, 118, 110, 0.15);
+      transform: translateY(-1px);
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0);
+      background-color: rgba(15, 118, 110, 0.2);
+    }
+  }
+
+  // Color Variants - Danger
+  &--danger {
+    background: linear-gradient(135deg, colors.$color-error, colors.$color-error-dark);
+    color: colors.$color-text-light;
+    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.45);
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(220, 38, 38, 0.55);
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(220, 38, 38, 0.35);
+    }
+  }
+
+  // Color Variants - Success
+  &--success {
+    background: linear-gradient(135deg, colors.$color-success, colors.$color-success-dark);
+    color: colors.$color-text-light;
+    box-shadow: 0 10px 25px rgba(22, 163, 74, 0.45);
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(22, 163, 74, 0.55);
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+    }
+  }
+
+  // State - Disabled
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+
+  // Focus State
+  &:focus-visible {
+    outline: 2px solid colors.$color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================================================
+// FORM INPUT UTILITIES
+// ============================================================================
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$space-xs;
+}
+
+.label {
+  font-size: variables.$font-size-sm;
+  font-weight: variables.$font-weight-medium;
+  color: variables.$color-text;
+  line-height: variables.$line-height-normal;
+}
+
+.input,
+.textarea,
+.select {
+  padding: variables.$space-sm;
+  font-size: variables.$font-size-base;
+  font-family: variables.$font-family-base;
+  color: colors.$color-text-dark;
+  background-color: colors.$color-text-light;
+  border: 1px solid colors.$color-border;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    border-color 120ms ease-out,
+    box-shadow 120ms ease-out,
+    background-color 120ms ease-out;
+
+  &::placeholder {
+    color: colors.$color-text-secondary;
+  }
+
+  &:focus-visible {
+    border-color: colors.$color-accent-indigo-form;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+
+  // Disabled State
+  &:disabled {
+    background-color: colors.$color-border;
+    color: colors.$color-text-secondary;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // Error State
+  &--error,
+  &.error {
+    border-color: colors.$color-error;
+    background-color: rgba(220, 38, 38, 0.05);
+
+    &:focus-visible {
+      border-color: colors.$color-error;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+  }
+}
+
+.input {
+  padding: variables.$space-sm 0;
+  border: none;
+  border-bottom: 1px solid colors.$color-border;
+  background-color: transparent;
+  color: colors.$color-text-dark;
+
+  &:focus-visible {
+    border-bottom-color: colors.$color-accent-indigo-form;
+    box-shadow: none;
+  }
+
+  &--error,
+  &.error {
+    border-bottom-color: colors.$color-error;
+    background-color: transparent;
+
+    &:focus-visible {
+      border-bottom-color: colors.$color-error;
+      box-shadow: none;
+    }
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+
+  &:focus-visible {
+    border-color: colors.$color-accent-indigo-form;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+
+  &--error,
+  &.error {
+    border-color: colors.$color-error;
+    background-color: rgba(220, 38, 38, 0.05);
+
+    &:focus-visible {
+      border-color: colors.$color-error;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+  }
+}
+
+.select {
+  cursor: pointer;
+  padding-right: variables.$space-xl;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right variables.$space-sm center;
+  appearance: none;
+
+  &:focus-visible {
+    border-color: colors.$color-accent-indigo-form;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+
+  &--error,
+  &.error {
+    border-color: colors.$color-error;
+    background-color: rgba(220, 38, 38, 0.05);
+
+    &:focus-visible {
+      border-color: colors.$color-error;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+  }
+}
+
+.input-error-message {
+  margin: variables.$space-xs 0 0;
+  font-size: variables.$font-size-xs;
+  color: colors.$color-error;
+  line-height: variables.$line-height-tight;
+}
+
+.input-hint {
+  margin: variables.$space-xs 0 0;
+  font-size: variables.$font-size-xs;
+  color: colors.$color-text-secondary;
+  line-height: variables.$line-height-tight;
+}
+
+// ============================================================================
+// UTILITY CLASSES
+// ============================================================================
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

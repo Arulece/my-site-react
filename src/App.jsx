@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import ContactPage from './components/ContactPage/ContactPage';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
+import ContactPage from './pages/ContactPage/ContactPage';
 
 const PlaceholderPage = ({ title }) => (
   <section className="app__section app__section--hero">

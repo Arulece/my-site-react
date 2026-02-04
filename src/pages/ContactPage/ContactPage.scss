@@ -1,11 +1,12 @@
 @use 'sass:math';
 @use '../../styles/variables';
+@use '../../styles/colors';
 @use '../../styles/mixins';
 
 .contact {
   padding: variables.$space-xl variables.$space-md variables.$space-xl * 2;
-  background-color: #5af4dd;
-  color: #020617;
+  background-color: colors.$color-contact-background;
+  color: colors.$color-contact-text;
 
   @include mixins.respond-md {
     padding: variables.$space-xl * 2 variables.$space-md variables.$space-xl * 3;
@@ -37,7 +38,7 @@
   max-width: 30rem;
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #065f46;
+  color: colors.$color-contact-accent;
 
   @include mixins.respond-md {
     font-size: 1rem;
@@ -51,7 +52,7 @@
 }
 
 .contact__form-card {
-  background-color: #ffffff;
+  background-color: colors.$color-contact-form-bg;
   border-radius: 8px;
   padding: variables.$space-lg variables.$space-md * 1.5 variables.$space-xl;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
@@ -64,7 +65,7 @@
 .contact__form-title {
   margin: 0 0 variables.$space-lg;
   font-size: 1.1rem;
-  color: #1d2499;
+  color: colors.$color-contact-form-title;
 }
 
 .contact__success {
@@ -72,9 +73,9 @@
   padding: variables.$space-sm variables.$space-md;
   border-radius: 6px;
   font-size: 0.9rem;
-  color: #14532d;
-  background-color: rgba(22, 163, 74, 0.12);
-  border: 1px solid rgba(22, 163, 74, 0.3);
+  color: colors.$color-success-dark;
+  background-color: colors.$color-success-bg;
+  border: 1px solid colors.$color-success-border;
 }
 
 .contact__form {
@@ -106,33 +107,33 @@
 .contact__label {
   font-size: 0.82rem;
   font-weight: 500;
-  color: #1e3a8a;
+  color: colors.$color-contact-form-title;
 }
 
 .contact__input,
 .contact__textarea {
   padding: variables.$space-sm 0;
   border: none;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid colors.$color-border;
   font-size: 0.95rem;
   font-family: variables.$font-family-base;
-  color: #0f172a;
+  color: colors.$color-text-dark;
   background-color: transparent;
   outline: none;
   resize: vertical;
 
   &::placeholder {
-    color: #9ca3af;
+    color: colors.$color-text-secondary;
   }
 
   &:focus-visible {
-    border-bottom-color: #4f46e5;
+    border-bottom-color: colors.$color-accent-indigo-form;
   }
 }
 
 .contact__input--error,
 .contact__textarea--error {
-  border-bottom-color: #dc2626;
+  border-bottom-color: colors.$color-error;
 }
 
 .contact__textarea {
@@ -148,8 +149,8 @@
   min-width: 130px;
   padding: variables.$space-sm variables.$space-lg;
   border-radius: 999px;
-  background: linear-gradient(135deg, #312e81, #1d4ed8);
-  color: #f9fafb;
+  background: linear-gradient(135deg, colors.$color-accent-indigo-light, colors.$color-accent-indigo);
+  color: colors.$color-text-light;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -176,12 +177,12 @@
 .contact__error-text {
   margin: variables.$space-xs 0 0;
   font-size: 0.8rem;
-  color: #dc2626;
+  color: colors.$color-error;
 }
 
 .contact__info-card {
-  background-color: #1d1fdd;
-  color: #e5e7eb;
+  background-color: colors.$color-accent-indigo;
+  color: colors.$color-text;
   border-radius: 0 0 8px 8px;
   padding: variables.$space-lg variables.$space-md * 1.5 variables.$space-xl;
   box-shadow: 0 24px 40px rgba(15, 23, 42, 0.3);

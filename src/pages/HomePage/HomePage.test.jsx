@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import HomePage from './HomePage';
 
 // Mock the Banner component
-jest.mock('../components/Banner/Banner', () => {
+jest.mock('../../components/Banner/Banner', () => {
   return function MockBanner() {
     return <div data-testid="banner-mock">Mock Banner Component</div>;
   };

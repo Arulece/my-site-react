@@ -5,18 +5,13 @@ const HomePage = () => {
   const bannerImages = [
     {
       id: 1,
-      src: '/assets/slide-1.svg',
-      alt: 'Welcome to our site',
+      src: '/assets/gallery/family.png',
+      alt: 'Gallery Banner',
     },
     {
       id: 2,
-      src: '/assets/slide-2.svg',
-      alt: 'Discover our services',
-    },
-    {
-      id: 3,
-      src: '/assets/slide-3.svg',
-      alt: 'Join our community',
+      src: '/assets/gallery/family_2.png',
+      alt: 'Gallery Banner 2',
     },
   ];
 

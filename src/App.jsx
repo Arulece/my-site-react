@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import ContactPage from './pages/ContactPage/ContactPage';
+import GalleryPage from './pages/GalleryPage/GalleryPage';
 
 const PlaceholderPage = ({ title }) => (
   <section className="app__section app__section--hero">
@@ -20,6 +21,7 @@ const App = () => (
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<PlaceholderPage title="About" />} />
         <Route path="/services" element={<PlaceholderPage title="Services" />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
         <Route
           path="/contact"

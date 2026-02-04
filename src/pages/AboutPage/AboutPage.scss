@@ -1,0 +1,527 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+
+// ============================================================================
+// ABOUT PAGE - MAIN CONTAINER
+// ============================================================================
+
+.about-page {
+  width: 100%;
+  background: linear-gradient(135deg, colors.$color-background 0%, colors.$color-surface 100%);
+}
+
+.about-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 vars.$space-md;
+
+  @include mixins.respond-md {
+    padding: 0 vars.$space-lg;
+  }
+}
+
+// ============================================================================
+// HERO SECTION
+// ============================================================================
+
+.about-page__hero {
+  background: linear-gradient(
+    135deg,
+    colors.$color-primary 0%,
+    colors.$color-primary-dark 50%,
+    colors.$color-primary-light 100%
+  );
+  padding: vars.$space-2xl vars.$space-md;
+  text-align: center;
+  border-bottom: 3px solid colors.$color-primary-light;
+
+  @include mixins.respond-md {
+    padding: vars.$space-2xl * 1.5 vars.$space-lg;
+  }
+}
+
+.about-page__hero-title {
+  font-size: 2.5rem;
+  font-weight: vars.$font-weight-bold;
+  color: colors.$color-text-light;
+  margin: 0 0 vars.$space-md 0;
+  letter-spacing: -0.02em;
+
+  @include mixins.respond-md {
+    font-size: 3.5rem;
+    margin-bottom: vars.$space-lg;
+  }
+}
+
+.about-page__hero-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: vars.$line-height-relaxed;
+
+  @include mixins.respond-md {
+    font-size: 1.375rem;
+  }
+}
+
+// ============================================================================
+// SECTION STYLES
+// ============================================================================
+
+.about-page__section {
+  padding: vars.$space-2xl vars.$space-md;
+
+  @include mixins.respond-md {
+    padding: vars.$space-2xl * 1.5 vars.$space-lg;
+  }
+
+  &:nth-child(even) {
+    background: colors.$color-surface-secondary;
+  }
+}
+
+.about-page__section-title {
+  font-size: 2rem;
+  font-weight: vars.$font-weight-bold;
+  color: colors.$color-text-light;
+  margin: 0 0 vars.$space-2xl 0;
+  text-align: center;
+  position: relative;
+  padding-bottom: vars.$space-lg;
+
+  @include mixins.respond-md {
+    font-size: 2.5rem;
+    margin-bottom: vars.$space-2xl * 1.5;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, colors.$color-primary-light, colors.$color-primary);
+    border-radius: 2px;
+  }
+}
+
+// ============================================================================
+// INTRODUCTION SECTION
+// ============================================================================
+
+.about-page__intro-section {
+  background: colors.$color-surface;
+}
+
+.about-page__intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-page__intro-text {
+  font-size: vars.$font-size-lg;
+  color: colors.$color-text-secondary;
+  line-height: vars.$line-height-relaxed;
+  margin: 0 0 vars.$space-lg 0;
+  text-align: center;
+
+  @include mixins.respond-md {
+    font-size: vars.$font-size-xl;
+    margin-bottom: vars.$space-lg;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ============================================================================
+// SKILLS SECTION
+// ============================================================================
+
+.about-page__skills-section {
+  background: colors.$color-surface;
+}
+
+.about-page__skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-2xl;
+
+  @include mixins.respond-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about-page__skill-category {
+  background: colors.$color-background;
+  padding: vars.$space-lg;
+  border-radius: 8px;
+  border-left: 4px solid colors.$color-primary-light;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @include mixins.respond-md {
+    padding: vars.$space-xl;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(20, 184, 166, 0.15);
+  }
+}
+
+.about-page__skill-category-title {
+  font-size: vars.$font-size-xl;
+  font-weight: vars.$font-weight-semibold;
+  color: colors.$color-text-light;
+  margin: 0 0 vars.$space-md 0;
+}
+
+.about-page__skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-sm;
+}
+
+.about-page__skill-tag {
+  display: inline-block;
+  padding: vars.$space-sm vars.$space-md;
+  background: linear-gradient(135deg, colors.$color-primary-dark, colors.$color-primary);
+  color: colors.$color-text-light;
+  border-radius: 20px;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-medium;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: linear-gradient(135deg, colors.$color-primary, colors.$color-primary-light);
+    transform: scale(1.05);
+  }
+}
+
+// ============================================================================
+// EXPERIENCE SECTION
+// ============================================================================
+
+.about-page__experience-section {
+  background: colors.$color-surface;
+}
+
+.about-page__timeline {
+  position: relative;
+  padding: vars.$space-lg 0;
+
+  // Vertical line for timeline
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, colors.$color-primary-light, colors.$color-primary-dark);
+
+    @include mixins.respond-md {
+      left: calc(50% - 1px);
+    }
+  }
+}
+
+.about-page__timeline-item {
+  margin-bottom: vars.$space-2xl;
+  margin-left: 60px;
+
+  @include mixins.respond-md {
+    margin-left: 0;
+    display: flex;
+    margin-bottom: vars.$space-2xl * 1.5;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(even) .about-page__experience-card {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    &:nth-child(odd) .about-page__experience-card {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+
+  // Dot on timeline
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: colors.$color-primary-light;
+    border: 3px solid colors.$color-surface;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px colors.$color-primary;
+    z-index: 1;
+
+    @include mixins.respond-md {
+      left: calc(50% - 15px);
+    }
+  }
+}
+
+.about-page__experience-card {
+  background: colors.$color-background;
+  padding: vars.$space-lg;
+  border-radius: 8px;
+  border: 1px solid colors.$color-border;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+
+  @include mixins.respond-md {
+    padding: vars.$space-xl;
+    width: calc(50% - 30px);
+  }
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(20, 184, 166, 0.2);
+    border-color: colors.$color-primary-light;
+    transform: translateY(-4px);
+  }
+}
+
+.about-page__experience-header {
+  display: flex;
+  gap: vars.$space-md;
+  margin-bottom: vars.$space-md;
+  align-items: flex-start;
+}
+
+.about-page__experience-logo {
+  font-size: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(20, 184, 166, 0.1);
+  border-radius: 8px;
+}
+
+.about-page__experience-title-group {
+  flex: 1;
+}
+
+.about-page__experience-role {
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
+  color: colors.$color-text-light;
+  margin: 0 0 vars.$space-xs 0;
+}
+
+.about-page__experience-company {
+  font-size: vars.$font-size-base;
+  color: colors.$color-primary-light;
+  margin: 0;
+  font-weight: vars.$font-weight-medium;
+}
+
+.about-page__experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-sm;
+  margin-bottom: vars.$space-md;
+  font-size: vars.$font-size-sm;
+  color: colors.$color-text-secondary;
+}
+
+.about-page__experience-meta-item {
+  display: inline;
+}
+
+.about-page__experience-meta-divider {
+  color: colors.$color-border;
+}
+
+.about-page__experience-description {
+  color: colors.$color-text-secondary;
+  line-height: vars.$line-height-relaxed;
+  margin: 0 0 vars.$space-lg 0;
+  font-size: vars.$font-size-base;
+}
+
+.about-page__experience-achievements {
+  margin-bottom: vars.$space-lg;
+}
+
+.about-page__experience-achievements-title {
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-semibold;
+  color: colors.$color-primary-light;
+  margin: 0 0 vars.$space-sm 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about-page__experience-achievements-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-page__achievement-item {
+  color: colors.$color-text-secondary;
+  font-size: vars.$font-size-sm;
+  margin-bottom: vars.$space-sm;
+  padding-left: vars.$space-lg;
+  position: relative;
+  line-height: vars.$line-height-normal;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: colors.$color-primary-light;
+    font-weight: bold;
+  }
+}
+
+.about-page__experience-skills {
+  margin-top: vars.$space-lg;
+  padding-top: vars.$space-lg;
+  border-top: 1px solid colors.$color-border-light;
+}
+
+.about-page__experience-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-sm;
+}
+
+.about-page__experience-skill-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(20, 184, 166, 0.15);
+  color: colors.$color-primary-light;
+  border-radius: 16px;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-medium;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(20, 184, 166, 0.25);
+    border-color: colors.$color-primary-light;
+  }
+}
+
+// ============================================================================
+// EDUCATION SECTION
+// ============================================================================
+
+.about-page__education-section {
+  background: colors.$color-surface;
+}
+
+.about-page__education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-xl;
+
+  @include mixins.respond-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about-page__education-card {
+  background: colors.$color-background;
+  border: 1px solid colors.$color-border;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(20, 184, 166, 0.2);
+    border-color: colors.$color-primary-light;
+    transform: translateY(-4px);
+  }
+}
+
+.about-page__education-card-header {
+  background: linear-gradient(135deg, colors.$color-primary-dark, colors.$color-primary);
+  padding: vars.$space-lg;
+  color: colors.$color-text-light;
+}
+
+.about-page__education-degree {
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
+  margin: 0 0 vars.$space-xs 0;
+}
+
+.about-page__education-institution {
+  font-size: vars.$font-size-sm;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: vars.$font-weight-normal;
+}
+
+.about-page__education-content {
+  padding: vars.$space-lg;
+}
+
+.about-page__education-specialization {
+  font-size: vars.$font-size-base;
+  color: colors.$color-text-secondary;
+  margin: 0 0 vars.$space-md 0;
+  line-height: vars.$line-height-normal;
+}
+
+.about-page__education-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: vars.$space-md;
+}
+
+.about-page__education-duration {
+  font-size: vars.$font-size-sm;
+  color: colors.$color-text-muted;
+  font-weight: vars.$font-weight-medium;
+}
+
+.about-page__education-grade {
+  font-size: vars.$font-size-sm;
+  color: colors.$color-primary-light;
+  font-weight: vars.$font-weight-semibold;
+  background: rgba(20, 184, 166, 0.1);
+  padding: 4px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+// ============================================================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================================================
+
+@include mixins.respond-md {
+  .about-page__skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
